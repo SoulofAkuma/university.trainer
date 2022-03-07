@@ -36,7 +36,7 @@ app.get("/app/:topic/:step(\\d+)", (req, res) => {
 app.get("/api/topics", (req, res) => {
     let response = []
     fs.readdirSync(__dirname + "/public/md").forEach(file => {
-        response.push(file.substring(0, file.length - 3));
+        if (!file.startsWith(".")) response.push(file.substring(0, file.length - 3));
     });
     res.send(response);
 });
@@ -87,7 +87,7 @@ wss.on("connection", (socket, req) => {
         let sendTopics = () => {
             let response = []
             fs.readdirSync(__dirname + "/public/md").forEach(file => {
-                response.push(file.substring(0, file.length - 3));
+                if (!file.startsWith(".")) response.push(file.substring(0, file.length - 3));
             });
             socket.send(JSON.stringify({
                 topics: response
