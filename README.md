@@ -7,4 +7,5 @@ To use clone/download the repository:
 - (Optional for javascript development to trigger server restart on file modification)
     - install nodemon with `npm install -g nodemon --save`
 - Start the server with `node server.js` or `nodemon --inspect server.js` (if you followed the optional step)
-- Access the server through [http://localhost:8181](http://localhost:8181) and query your markdown files 
+- Access the server through [http://localhost:8181](http://localhost:8181) and query your markdown files
+- Put all your markdown files into `public/md`
