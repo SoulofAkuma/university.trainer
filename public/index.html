@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:8181/css/global.css">
+    <link rel="stylesheet" href="http://localhost:8181/css/all.min.css">
+    <!-- <link rel="stylesheet" href="css/autoComplete.min.css"> -->
+    <link rel="stylesheet" href="http://localhost:8181/css/index.css">
+    <link rel="stylesheet" href="http://localhost:8181/css/iziToast.min.css">
+    <title>Trainer</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            },
+            startup: {
+                ready() {
+                    MathJax.startup.defaultReady();
+                    const {DelimiterMap} = MathJax._.input.tex.SymbolMap;
+                    const {Symbol} = MathJax._.input.tex.Symbol;
+                    const {MapHandler} = MathJax._.input.tex.MapHandler;
+                    const delimiter = MapHandler.getMap('delimiter');
+                    delimiter.add('\\llbracket', new Symbol('\\llbracket', '\u27E6'));
+                    delimiter.add('\\rrbracket', new Symbol('\\rrbracket', '\u27E7'));
+                    window.mathJaxReady = true;
+                }
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="http://localhost:8181/js/tex-mml-chtml.js">
+    </script>
+</head>
+<body class="text-white bg-dark">
+    <div class="container-xl">
+        <div class="w-100 d-flex justify-content-center align-items-center my-5">
+            <div class="d-flex justify-content-center align-items-center flex-wrap border-secondary border p-3 rounded" style="max-width: 25rem;">
+                <label for="topic" class="form-label w-100">Topic</label>
+                <input type="text" id="topic" class="bg-dark text-white form-control mb-3 w-100" autocomplete="off">
+                <button class="btn btn-primary w-100" id="loadTopic">Load Topic</button>
+            </div>
+        </div>
+        <div class="my-4 w-100 rounded border-primary border p-3" id="topicContent">
+
+        </div>
+    </div>
+    <div class="p-2 border-info border rounded" style="top: 1rem; left: 1rem; max-width: 15rem; position: fixed;">
+        <button class="btn btn-success d-flex align-items-center justify-content-center w-100 mb-3" id="nextLine">
+            <div class="me-3">Next Line</div>
+            <i class="fa-solid fa-arrow-down"></i>
+        </button>
+        <button class="btn btn-secondary d-flex align-items-center justify-content-center w-100 mb-3" id="undoLine">
+            <div class="me-3">Undo Line</div>
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        <button class="btn btn-danger d-flex align-items-center justify-content-center w-100" id="resetTopic">
+            <div class="me-3">Reset Topic</div>
+            <i class="fa-solid fa-rotate-left"></i>
+        </button>
+    </div>
+    <div class="p-2 border-info border rounded" style="top: 1rem; right: 1rem; max-width: 15rem; position: absolute;">
+        <div>Enter - Next Line</div>
+        <div>Crtl + z - Undo Line</div>
+        <div>Crtl + r - Reload Topic</div>
+        <div>Alt + z - Reset Topic</div>
+    </div>
+    <script src="http://localhost:8181/js/crypto-js.min.js"></script>
+    <script src="http://localhost:8181/js/bootstrap.bundle.js"></script>
+    <script src="http://localhost:8181/js/showdown.min.js"></script>
+    <script src="http://localhost:8181/js/autocomplete.js"></script>
+    <script src="http://localhost:8181/js/iziToast.min.js"></script>
+    <script src="http://localhost:8181/js/index.js"></script>
+</body>
+</html>

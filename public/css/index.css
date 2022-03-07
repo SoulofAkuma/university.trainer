@@ -1,0 +1,38 @@
+.autoComplete_wrapper {
+    width: 100% !important;
+}
+
+ul[role="listbox"] {
+    width: 100%;
+    list-style: none;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    border: 1px solid #7700ff!important;
+    border-radius: 0.25rem !important;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+ul[role="listbox"]:nth-child(odd) {
+    background-color: #0080ff !important;
+}
+
+li[role="option"] {
+    border-radius: 0.25rem !important;
+    display: block;
+    width: 100% !important;
+    transition: ease-in background-color 0.3s;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
+li[role="option"]:hover, li[role="option"][aria-selected="true"] {
+    background-color: #27fc91;
+}
+
+mark {
+    background-color: #7700ff;
+    border-radius: 0.25rem !important;
+    padding-bottom: 0.1rem;
+    padding-top: 0.1rem;
+}
